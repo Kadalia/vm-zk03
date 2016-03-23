@@ -1,0 +1,41 @@
+
+#!/bin/bash
+source ./deploy/tools.sh
+source ./env.sh
+
+webappdir=$1
+webapp=$2
+
+if [ -z "$webapp" ] || [ -z "$webappdir" ]; then 
+    error "missing parameters"
+else
+
+    if [ -d "$(readlink -f /everteam/pg-webapp/)" ]; then 
+         ./stop-pg-tomcat.sh
+        rm -rf $(readlink -f /everteam/pg-webapp/)
+    fi
+    rm -rf /everteam/pg-webapp > /dev/null
+
+    webappdir=/everteam/softs/$1
+    webapp=/everteam/deploy/pg-webapp/$2
+    
+    echo
+    info "Deploy $webapp to $webappdir"
+    echo
+
+
+    ./deploy/tomcat/instance.sh pg-tomcat 8081 8181 8281 8381
+    
+    mkdir $webappdir
+    unzip -q $webapp -d $webappdir
+    ln -s $webappdir /everteam/pg-webapp
+    
+    #rm $webapp
+    cp ./deploy/pg-webapp/c9.menus.* /everteam/home/c9.menus/
+    mkdir -p /everteam/et-tomcat/conf/Catalina/localhost
+    cp ./deploy/pg-webapp/pgstudio.xml /everteam/pg-tomcat/conf/Catalina/localhost
+
+    ./start-pg-tomcat.sh
+
+fi
+
