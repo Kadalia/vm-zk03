@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+var sModule = process.argv[2]
+var sFileId = process.argv[3]
+
+
 var request = require('request')
 var progress = require('request-progress')
 
@@ -113,17 +117,16 @@ function storeToken(token) {
 
 
 function download(auth) {
-  var path = "/everteam/tmp/tpot"
-  console.log(auth)
+
   var service = google.drive('v2');
 
   service.files.get({
-        fileId: "0B8HGOC_T379bbWk5NEhqSkE5RWs",
+        fileId: sFileId,
         auth: auth
       },
       function(err, response) {        //Logger.debug(JSON.stringify(response))
         if (!err) {
-          console.log(JSON.stringify(response.downloadUrl))
+          //console.log(JSON.stringify(response.downloadUrl))
 
           var options = {
             url: response.downloadUrl,
@@ -150,7 +153,7 @@ function download(auth) {
             .on('error', function(err) {
               //fCallback(err)
             })
-            .pipe(fs.createWriteStream(path))
+            .pipe(fs.createWriteStream(sModule + "/" + sFileId))
             .on('error', function(err) {
               //fCallback(err)
             })
