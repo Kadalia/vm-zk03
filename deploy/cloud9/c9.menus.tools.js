@@ -45,7 +45,13 @@
             shell("./deploy/deploy.sh pg-webapp 0B2czMS2TeonXOS1IMnVnYVEydzQ\n");
         }
     }), 50, handle);
-                
+
+    menus.addItemByPath("Everteam/Deploy/it-tomcat", new ui.item({ 
+        onclick: function(){ 
+            shell("./deploy/deploy.sh it-tomcat 0B2czMS2TeonXSk1mWW5ySHpqcjA\n");
+        }
+    }), 60, handle);
+                                
                 
                 
                   
