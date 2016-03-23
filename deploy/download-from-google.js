@@ -3,7 +3,6 @@
 var sModule = process.argv[2]
 var sFileId = process.argv[3]
 
-
 var request = require('request')
 var progress = require('request-progress')
 
@@ -14,8 +13,6 @@ var googleAuth = require('google-auth-library');
 
 
 var TOKEN_PATH = 'google_token.json';
-
-console.log(TOKEN_PATH)
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
@@ -128,6 +125,8 @@ function download(auth) {
         if (!err) {
           //console.log(JSON.stringify(response.downloadUrl))
 
+          var sFile = "/deploy/" + sModule + "/" + response.title
+
           var options = {
             url: response.downloadUrl,
             method: 'GET',
@@ -143,9 +142,6 @@ function download(auth) {
             })
             .on('progress', function(state) {
 
-              //Logger.debug(JSON.stringify(state))
-              console.log('received size in bytes:' + state.received + ' total size in bytes:' + state.total)
-
               if (state.percent) {
                 //fProgress(state.percent)
               }
@@ -153,8 +149,9 @@ function download(auth) {
             .on('error', function(err) {
               //fCallback(err)
             })
-            .pipe(fs.createWriteStream(sModule + "/" + sFileId))
+            .pipe(fs.createWriteStream("/everteam" + sFile))
             .on('error', function(err) {
+              console.log(sFile)
               //fCallback(err)
             })
             .on('close', function(err) {
