@@ -7,7 +7,7 @@ var everteam = '/everteam/et-webapp'
 var libxmljs = require("libxmljs")
 
 if(! ip) {
-       console.log("usage : deploySolrConfig [ip]")
+       console.log("usage : deploy [ip]")
 } else {
 
        var paramESCI = everteam + '/apps/esci/conf/param.xml'
