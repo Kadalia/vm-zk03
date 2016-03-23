@@ -168,30 +168,3 @@ function download(auth) {
  */
 
 }
-
-
-
-
-
-
-
-function getFile(auth) {
-  var service = google.drive('v2');
-
-  var fileId = '0B2czMS2TeonXaTRjM0NmdjZnVnc';
-  var dest = fs.createWriteStream('/everteam/tmp/photo.docx');
-  service.files.get({
-      fileId: fileId,
-      auth: auth,
-      alt: 'media'
-    })
-    .on('end', function() {
-      console.log('Done');
-    })
-    .on('error', function(err) {
-      console.log('Error during download', err);
-    })
-    .pipe(dest);
-
-
-}
