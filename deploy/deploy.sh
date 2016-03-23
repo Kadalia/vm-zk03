@@ -11,5 +11,6 @@ info "Deploy $1 from Google ($2)"
 success "---------------------------------------------------------"
 echo
 
-deployFile=$(./deploy/download-from-google.js $deployModule $deployGoogleFileId)
+./deploy/google-authorize.js
+deployFile=$(./deploy/google-download.js $deployModule $deployGoogleFileId)
 ./deploy/$deployModule/deploy.sh $deployFile
