@@ -92,10 +92,10 @@ function download(auth) {
             })
             .pipe(fs.createWriteStream("/everteam" + sFile))
             .on('error', function(err) {
-              console.log(sFile)
               //fCallback(err)
             })
             .on('close', function(err) {
+              console.log(sFile)
               //fCallback()
             })
 
