@@ -15,6 +15,12 @@ if [ ! -d "$(readlink -f /everteam/et-webapp/)" ]; then
     error "Can't deploy Solr: No webapp deployed !"
 
 else
+
+  if [ ! -d /everteam/home/solr ]; then 
+    mkdir /everteam/home/solr/
+  else
+    rm -rf /everteam/home/solr/
+  fi
   
   if [ -d "$(readlink -f /everteam/et-solr/)" ]; then 
     rm -rf $(readlink -f /everteam/et-solr/)
