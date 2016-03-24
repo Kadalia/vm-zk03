@@ -40,9 +40,9 @@ else
   cp -R ./ZK/* .
   rm -rf ./ZK
   
-  ./deploy/installEssentials.sh
   ./deploy/createWorkspace.sh
-  
+  ./deploy/installEssentials.sh
+
   #./deploy/cloud9/install.sh
   #./deploy/java/install.sh
   #./deploy/tomcat/install.sh
