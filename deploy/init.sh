@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./ZK/os.sh
+
 # for ifconfig ...
 if [ "$os" == "centos" ]; then 
   sudo yum -y install net-tools
