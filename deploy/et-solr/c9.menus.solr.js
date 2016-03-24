@@ -23,12 +23,12 @@
 
     menus.addItemByPath("Everteam/Everteam/Solr/Start Solr", new ui.item({ 
         onclick: function(){ 
-            shell("./start-solr.sh\n");
+            shell("./start-et-solr.sh\n");
         }
     }), 20, handle);
     
     menus.addItemByPath("Everteam/Everteam/Solr/Stop Solr", new ui.item({ 
         onclick: function(){ 
-             shell("./stop-solr.sh\n");
+             shell("./stop-et-solr.sh\n");
         }
     }), 30, handle);
