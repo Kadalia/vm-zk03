@@ -39,6 +39,13 @@ else
     mkdir -p /everteam/et-tomcat/conf/Catalina/localhost
     cp ./deploy/et-webapp/everteam.xml /everteam/et-tomcat/conf/Catalina/localhost/
 
+    if [ ! -d /everteam/home/docs ]; then 
+        mkdir /everteam/home/docs/
+    else
+        rm -rf /everteam/home/docs/
+    fi
+    
+
     ./start.sh
 
 fi
