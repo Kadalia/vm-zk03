@@ -32,7 +32,7 @@ else
     
     #rm $webapp
     cp ./deploy/pg-webapp/c9.menus.* /everteam/home/c9.menus/
-    mkdir -p /everteam/et-tomcat/conf/Catalina/localhost
+    mkdir -p /everteam/pg-tomcat/conf/Catalina/localhost
     cp ./deploy/pg-webapp/pgstudio.xml /everteam/pg-tomcat/conf/Catalina/localhost
 
     ./start-pg-tomcat.sh
