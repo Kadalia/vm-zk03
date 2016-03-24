@@ -1,14 +1,18 @@
 #!/bin/bash
 
-source ./ZK/os.sh
+chmod 777 -R ./ZK/*
+cp -R ./ZK/* .
+rm -rf ./ZK
+
+source ./os.sh
 
 # for ifconfig ...
 if [ "$os" == "centos" ]; then 
   sudo yum -y install net-tools
 fi
 
-source ./ZK/deploy/tools.sh
-source ./ZK/env.sh
+source ./deploy/tools.sh
+source ./env.sh
 
 echo
 success "---------------------------------------------------------"
@@ -34,12 +38,7 @@ else
   echo
   success "Please be patient !"
   echo
-  
-  chmod 777 -R ./ZK/*
-  
-  cp -R ./ZK/* .
-  rm -rf ./ZK
-  
+
   ./deploy/createWorkspace.sh
   ./deploy/installEssentials.sh
 
