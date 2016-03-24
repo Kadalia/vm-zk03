@@ -5,7 +5,7 @@ source ./env.sh
 
 
 echo
-info "Deploy data $deployFile"
+info "Deploy it-data"
 echo
 
 if [ ! -d "$(readlink -f /everteam/it-tomcat/)" ]; then 
