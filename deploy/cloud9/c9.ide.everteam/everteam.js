@@ -176,14 +176,13 @@ function openTomcatLog(sCmd){
                 shell("./deploy/et-solr/deploy.sh " + sFullPath + "\n");
             }
             if(sFullPath.indexOf('/deploy/et-webapp/') == 0) {
-                shell("./deploy/et-webapp/deploy.sh " + sName.substr(0, sName.lastIndexOf('.')) +  " " + sName + "\n");
+                shell("./deploy/et-webapp/deploy.sh " + sFullPath + "\n");
             }
             if(sFullPath.indexOf('/deploy/et-deploy/') == 0) {
                 shell("./deploy/et-deploy/deploy.sh " + sFullPath + "\n");
             }
-
             if(sFullPath.indexOf('/deploy/pg-webapp/') == 0) {
-                shell("./deploy/pg-webapp/deploy.sh " + sName.substr(0, sName.lastIndexOf('.')) +  " " + sName + "\n");                
+                shell("./deploy/pg-webapp/deploy.sh " + sFullPath + "\n");               
             }
         }
         uploadManager.on("batchDone", function(obj){upload(obj)}, handle)
