@@ -27,17 +27,17 @@ else
     logFile="/everteam/tmp/createdb.log"
     info "createdb (see $logFile)"
 
-    sudo -u postgres $psqlDir/createdb everteam > $logFile 2>&1
+    sudo sudo -u postgres $psqlDir/createdb everteam > $logFile 2>&1
     
     logFile="/everteam/tmp/loaddb.log"
     info "loaddb (see $logFile)"
 
-    sudo -u postgres psql -d everteam -f $deployFile > $logFile 2>&1
+    sudo sudo -u postgres psql -d everteam -f $deployFile > $logFile 2>&1
  
-    sudo -u postgres $psqlDir/createuser everteam -d >> $logFile 2>&1
-    sudo -u postgres psql -d everteam -c "ALTER USER everteam WITH PASSWORD 'everteam';" >> $logFile 2>&1
-    sudo -u postgres psql -d everteam -c "GRANT ALL ON ALL TABLES IN SCHEMA public TO everteam;" >> $logFile 2>&1
-    sudo -u postgres psql -d everteam -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to everteam;" >> $logFile 2>&1
+    sudo sudo -u postgres $psqlDir/createuser everteam -d >> $logFile 2>&1
+    sudo sudo -u postgres psql -d everteam -c "ALTER USER everteam WITH PASSWORD 'everteam';" >> $logFile 2>&1
+    sudo sudo -u postgres psql -d everteam -c "GRANT ALL ON ALL TABLES IN SCHEMA public TO everteam;" >> $logFile 2>&1
+    sudo sudo -u postgres psql -d everteam -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to everteam;" >> $logFile 2>&1
  
     
     #rm $deployFile
