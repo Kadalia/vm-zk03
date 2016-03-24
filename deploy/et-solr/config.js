@@ -32,7 +32,7 @@ if(! ip) {
               xmlDoc.get("//param[PARAMSEQ='esci.solr.secure']/CONTENT").text("true")
               xmlDoc.get("//param[PARAMSEQ='esci.solr.secure']").attr({priority:"true"})
 
-              xmlDoc.get("//param[PARAMSEQ='esci.solr.home']/CONTENT").text("/everteam/home/everteam/solr")
+              xmlDoc.get("//param[PARAMSEQ='esci.solr.home']/CONTENT").text("/everteam/home/solr")
               xmlDoc.get("//param[PARAMSEQ='esci.solr.home']").attr({priority:"true"})
               
               fs.writeFile(paramESCI, xmlDoc.toString(), function (err) {
