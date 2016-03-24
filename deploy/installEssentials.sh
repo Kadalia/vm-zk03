@@ -15,12 +15,12 @@ if [ "$os" == "ubuntu" ] || [ "$os" == "debian" ]; then
   curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - >> $logFile 2>&1  
   sudo apt-get -y install nodejs >> $logFile 2>&1
   sudo apt-get -y install nodejs-legacy >> $logFile 2>&1
+  sudo npm -g install npm@latest >> $logFile 2>&1
   npm install libxmljs >> $logFile 2>&1
   npm install request >> $logFile 2>&1
   npm install request-progress >> $logFile 2>&1
   npm install googleapis >> $logFile 2>&1
-  npm install google-auth-library >> $logFile 2>&1
-  
+
   sudo apt-get -y install python >> $logFile 2>&1
   sudo apt-get -y install unzip >> $logFile 2>&1  
 
@@ -48,12 +48,12 @@ if [ "$os" == "centos" ]; then
   
   curl --silent --location https://rpm.nodesource.com/setup | sudo bash - >> $logFile 2>&1 
   sudo yum -y install nodejs >> $logFile 2>&1
+  sudo npm -g install npm@latest >> $logFile 2>&1
   npm install libxmljs >> $logFile 2>&1
   npm install request >> $logFile 2>&1
   npm install request-progress >> $logFile 2>&1
   npm install googleapis >> $logFile 2>&1  
-  npm install google-auth-library >> $logFile 2>&1
-  
+
   # node will listen on port 80 without elevation
   sudo yum -y install libcap2-bin >> /everteam/softs/installEssentials.log 2>&1
   sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\``
