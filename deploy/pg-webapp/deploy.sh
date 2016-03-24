@@ -3,25 +3,25 @@
 source ./deploy/tools.sh
 source ./env.sh
 
-webappdir=$1
-webapp=$2
-
-if [ -z "$webapp" ] || [ -z "$webappdir" ]; then 
-    error "missing parameters"
+webapp=/everteam$1
+webappdir=${webapp%.war}
+webappdir=${webappdir##*/}
+    
+if [ -z "$webappdir" ] ; then 
+    error "missing parameter"
 else
 
+    webappdir=/everteam/softs/$webappdir
+
+    echo
+    info "Deploy $webapp to $webappdir"
+    echo
+    
     if [ -d "$(readlink -f /everteam/pg-webapp/)" ]; then 
          ./stop-pg-tomcat.sh
         rm -rf $(readlink -f /everteam/pg-webapp/)
     fi
     rm -rf /everteam/pg-webapp > /dev/null
-
-    webappdir=/everteam/softs/$1
-    webapp=/everteam/deploy/pg-webapp/$2
-    
-    echo
-    info "Deploy $webapp to $webappdir"
-    echo
 
 
     ./deploy/tomcat/instance.sh pg-tomcat 8081 8181 8281 8381
