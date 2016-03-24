@@ -3,7 +3,7 @@
 source ./deploy/tools.sh
 source ./env.sh
 
-deployFile=/everteam/$1
+deployFile=/everteam$1
 
 echo
 info "Deploy data $deployFile"
