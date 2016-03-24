@@ -19,6 +19,7 @@ if [ "$os" == "ubuntu" ] || [ "$os" == "debian" ]; then
   npm install request >> $logFile 2>&1
   npm install request-progress >> $logFile 2>&1
   npm install googleapis >> $logFile 2>&1
+  npm install google-auth-library >> $logFile 2>&1
   
   sudo apt-get -y install python >> $logFile 2>&1
   sudo apt-get -y install unzip >> $logFile 2>&1  
@@ -51,7 +52,8 @@ if [ "$os" == "centos" ]; then
   npm install request >> $logFile 2>&1
   npm install request-progress >> $logFile 2>&1
   npm install googleapis >> $logFile 2>&1  
-
+  npm install google-auth-library >> $logFile 2>&1
+  
   # node will listen on port 80 without elevation
   sudo yum -y install libcap2-bin >> /everteam/softs/installEssentials.log 2>&1
   sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\``
