@@ -1,17 +1,18 @@
 #!/bin/bash
 
+# for ifconfig ...
+if [ "$os" == "centos" ]; then 
+  sudo yum -y install net-tools
+fi
+
 source ./ZK/deploy/tools.sh
+source ./ZK/env.sh
 
 echo
 success "---------------------------------------------------------"
 info "Everteam init"
 success "---------------------------------------------------------"
 echo
-
-./ZK/deploy/installEssentials.sh
-
-source ./ZK/env.sh
-
 
 debug "os:$os"
 debug "ip:$ip"
@@ -37,6 +38,7 @@ else
   cp -R ./ZK/* .
   rm -rf ./ZK
   
+  ./deploy/installEssentials.sh
   ./deploy/createWorkspace.sh
   
   ./deploy/cloud9/install.sh
