@@ -1,12 +1,17 @@
 #!/bin/bash
+
 source ./ZK/deploy/tools.sh
-source ./ZK/env.sh
 
 echo
 success "---------------------------------------------------------"
 info "Everteam init"
 success "---------------------------------------------------------"
 echo
+
+./ZK/deploy/installEssentials.sh
+
+source ./ZK/env.sh
+
 
 debug "os:$os"
 debug "ip:$ip"
@@ -33,7 +38,6 @@ else
   rm -rf ./ZK
   
   ./deploy/createWorkspace.sh
-  ./deploy/installEssentials.sh
   
   ./deploy/cloud9/install.sh
   ./deploy/java/install.sh
