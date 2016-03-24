@@ -10,8 +10,8 @@ if [ -z "$1" ] ; then
     error "missing parameter"
 else
     webapp=/everteam$1
-    webappdir=/everteam/softs/${webapp%.war}
-
+    webappdir=${webapp%.war}
+    webappdir=/everteam/softs/${webappdir##*/}
     
     echo
     info "Deploy $webapp to $webappdir"
