@@ -24,7 +24,7 @@ if [ "$os" == "tinycore" ]; then
 fi
 
 if [ "$os" == "centos" ]; then 
-  workspaceDir=/home/local/everteam
+  workspaceDir=/everteam
   workspaceIsMounted=no
   ip=`/sbin/ifconfig eth0 | awk '/inet /{print substr($2,1)}'`
   psqlDir=/usr/pgsql-9.4/bin
