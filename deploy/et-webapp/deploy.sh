@@ -2,16 +2,16 @@
 #!/bin/bash
 source ./deploy/tools.sh
 source ./env.sh
-
     
-webapp=$1
-
-if [ -z "$1" ] ; then 
+webapp=/everteam$1
+webappdir=${webapp%.war}
+webappdir=${webappdir##*/}
+    
+if [ -z "$webappdir" ] ; then 
     error "missing parameter"
 else
-    webapp=/everteam$1
-    webappdir=${webapp%.war}
-    webappdir=/everteam/softs/${webappdir##*/}
+
+    webappdir=/everteam/softs/$webappdir
     
     echo
     info "Deploy $webapp to $webappdir"
