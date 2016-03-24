@@ -24,7 +24,7 @@ else
     logFile="/everteam/tmp/createdb.log"
     info "createdb (see $logFile)"
 
-    sudo -u postgres $psqlDir/createdb intalio > $logFile 2>&1
+    sudo sudo -u postgres $psqlDir/createdb intalio > $logFile 2>&1
     
     logFile="/everteam/tmp/loaddb.log"
     info "loaddb (see $logFile)"
@@ -32,11 +32,11 @@ else
     # MOUAIS ....
     sudo chmod -R 777 /everteam/it-tomcat/databases/   
     
-    sudo -u postgres psql -d intalio -f $deployFile > $logFile 2>&1
+    sudo sudo -u postgres psql -d intalio -f $deployFile > $logFile 2>&1
  
-    sudo -u postgres psql -d intalio -c "ALTER USER everteam WITH PASSWORD 'everteam';" >> $logFile 2>&1
-    sudo -u postgres psql -d intalio -c "GRANT ALL ON ALL TABLES IN SCHEMA public TO everteam;" >> $logFile 2>&1
-    sudo -u postgres psql -d intalio -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to everteam;" >> $logFile 2>&1
+    sudo sudo -u postgres psql -d intalio -c "ALTER USER everteam WITH PASSWORD 'everteam';" >> $logFile 2>&1
+    sudo sudo -u postgres psql -d intalio -c "GRANT ALL ON ALL TABLES IN SCHEMA public TO everteam;" >> $logFile 2>&1
+    sudo sudo -u postgres psql -d intalio -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to everteam;" >> $logFile 2>&1
  
     cp ./deploy/it-data/c9.menus.* /everteam/home/c9.menus/
     
