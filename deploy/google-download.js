@@ -82,7 +82,7 @@ function download(auth) {
               delay: 100 // Only start to emit after 1000ms delay, defaults to 0ms
             })
             .on('progress', function(state) {
-              process.stdout.write(".");
+              process.stderr.write(".")
 
             })
             .on('error', function(err) {
