@@ -14,45 +14,45 @@
         }
     }), 10, handle);
     
-    menus.addItemByPath("Everteam/Deploy",  new ui.menu(), 90, handle);
+    menus.addItemByPath("Everteam/Deploy from Google",  new ui.menu(), 90, handle);
 
-    menus.addItemByPath("Everteam/Deploy/et-webapp (everteam-5.2.2)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-webapp (everteam-5.2.2)", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh et-webapp 0B2czMS2TeonXSndnY2ZpUHoxVWM\n");
         }
     }), 10, handle);
 
-    menus.addItemByPath("Everteam/Deploy/et-licence", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-licence", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh et-licence 0B2czMS2TeonXNEdBcTZMU3l5eDQ\n");
         }
     }), 10, handle);
 
-    menus.addItemByPath("Everteam/Deploy/et-solr (et-solr-5.4.1-2)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-solr (et-solr-5.4.1-2)", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh et-solr 0B2czMS2TeonXMi1oaDlUZU00RDA\n");
         }
     }), 20, handle);
 
-    menus.addItemByPath("Everteam/Deploy/et-zookeeper (zookeeper-3.4.6)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-zookeeper (zookeeper-3.4.6)", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh et-zookeeper 0B2czMS2TeonXWlhVMEMzY1VKM0k\n");
         }
     }), 30, handle);
 
-    menus.addItemByPath("Everteam/Deploy/et-data (postgres_es_5.2.1)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-data (postgres_es_5.2.1)", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh et-data 0B2czMS2TeonXcmNfSWdudFBWejA\n");
         }
     }), 40, handle);
 
-    menus.addItemByPath("Everteam/Deploy/pg-webapp (pgstudio-2.0)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/pg-webapp (pgstudio-2.0)", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh pg-webapp 0B2czMS2TeonXOS1IMnVnYVEydzQ\n");
         }
     }), 50, handle);
 
-    menus.addItemByPath("Everteam/Deploy/it-tomcat", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/it-tomcat", new ui.item({ 
         onclick: function(){ 
             shell("./deploy/deploy.sh it-tomcat 0B2czMS2TeonXSk1mWW5ySHpqcjA\n");
         }
