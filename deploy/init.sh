@@ -43,8 +43,8 @@ else
   ./deploy/installEssentials.sh
   ./deploy/createWorkspace.sh
   
-  ./deploy/cloud9/install.sh
-  ./deploy/java/install.sh
-  ./deploy/tomcat/install.sh
+  #./deploy/cloud9/install.sh
+  #./deploy/java/install.sh
+  #./deploy/tomcat/install.sh
 
 fi
