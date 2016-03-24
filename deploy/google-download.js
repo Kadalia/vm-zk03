@@ -78,14 +78,12 @@ function download(auth) {
 
           // Note that the options argument is optional
           progress(request(options), {
-              throttle: 200, // Throttle the progress event to 2000ms, defaults to 1000ms
+              throttle: 2000, // Throttle the progress event to 2000ms, defaults to 1000ms
               delay: 100 // Only start to emit after 1000ms delay, defaults to 0ms
             })
             .on('progress', function(state) {
+              process.stdout.write(".");
 
-              if (state.percent) {
-                //fProgress(state.percent)
-              }
             })
             .on('error', function(err) {
               //fCallback(err)
