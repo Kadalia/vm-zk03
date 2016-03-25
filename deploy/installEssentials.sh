@@ -50,7 +50,6 @@ if [ "$os" == "centos" ]; then
   if [ ! -z "$v6" ]; then
     sudo yum -y update >> $logFile 2>&1
     sudo yum -y install centos-release-SCL >> $logFile 2>&1
-    scl enable python27 bash
   fi
 
   sudo yum -y install curl >> $logFile 2>&1  
