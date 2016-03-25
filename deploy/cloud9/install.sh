@@ -19,8 +19,7 @@ else
     v7=$(cat /etc/redhat-release | grep  -F " 7.")
     v6=$(cat /etc/redhat-release | grep  -F " 6.")
     if [ ! -z "$v6" ]; then
-      export logfile
-      scl enable python27 bash -c "$c9sdk/scripts/install-sdk.sh > $logfile 2>&1"
+      scl enable python27 "bash -c '$c9sdk/scripts/install-sdk.sh > $logfile 2>&1'"
     else
       $c9sdk/scripts/install-sdk.sh > $logfile 2>&1
     fi
