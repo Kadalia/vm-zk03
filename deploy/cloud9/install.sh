@@ -22,11 +22,12 @@ else
       export logfile
       scl enable python27 bash -c "$c9sdk/scripts/install-sdk.sh > $logfile 2>&1"
     else
-      $c9sdk/scripts/install-sdk.sh > $logfile 2>&
+      $c9sdk/scripts/install-sdk.sh > $logfile 2>&1
     fi
   else
     $c9sdk/scripts/install-sdk.sh > $logfile 2>&1
   fi
+  
 fi
 
 cp -R ./deploy/cloud9/c9.ide.everteam $c9sdk/plugins
