@@ -8,14 +8,25 @@ logfile=/everteam/tmp/downloadCloud9.log
 info "Download Cloud9 (see $logfile)"
 git clone git://github.com/c9/core.git $c9sdk > $logfile 2>&1
 
-if [ "$os" == "tinycore" ]; then 
   logfile=/everteam/tmp/installCloud9.log
   info "Install Cloud9 (see $logfile)"
+
+if [ "$os" == "tinycore" ]; then 
   sudo $c9sdk/scripts/install-sdk.sh > $logfile 2>&1
 else
-  logfile=/everteam/tmp/installCloud9.log
-  info "Install Cloud9 (see $logfile)"
-  $c9sdk/scripts/install-sdk.sh > $logfile 2>&1
+
+  if [ "$os" == "centos" ]; then 
+    v7=$(cat /etc/redhat-release | grep  -F " 7.")
+    v6=$(cat /etc/redhat-release | grep  -F " 6.")
+    if [ ! -z "$v6" ]; then
+      export logfile
+      scl enable python27 bash -c "$c9sdk/scripts/install-sdk.sh > $logfile 2>&1"
+    else
+      $c9sdk/scripts/install-sdk.sh > $logfile 2>&
+    fi
+  else
+    $c9sdk/scripts/install-sdk.sh > $logfile 2>&1
+  fi
 fi
 
 cp -R ./deploy/cloud9/c9.ide.everteam $c9sdk/plugins
