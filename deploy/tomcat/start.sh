@@ -15,7 +15,7 @@ export CATALINA_OPTS="$CATALINA_OPTS -Xms512m"
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx2000m"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=512m"
 
-#ps -ef | grep 'et-[t]omcat' | awk '{print $2}' | xargs kill -9
+ps -ef | grep '/[e]verteam/INSTANCE' | awk '{print $2}' | xargs kill -9
 
 rm -rf $CATALINA_HOME/logs/*
 
