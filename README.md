@@ -17,7 +17,7 @@ if [ -d \"$(readlink -f /everteam)\" ]; then ./boot.sh ; else sudo apt-get -y in
 ### Force init (on previously installed VM)
 
 ```
-rm -rf $(readlink -f /everteam) && sudo rm -rf /everteam && cd && rm -rf * && git clone git://github.com/everteam/VM.ZK03.git ZK && bash ./ZK/boot.sh
+sudo rm -rf $(readlink -f /everteam) && sudo rm -rf /everteam && cd && rm -rf * && git clone git://github.com/everteam/VM.ZK03.git ZK && bash ./ZK/boot.sh
 ```
 
 ## CENTOS (tested 6.7 7.2)
@@ -34,5 +34,5 @@ if [ -d \"$(readlink -f /everteam)\" ]; then ./boot.sh ; else sudo yum -y instal
 
 ### Force init (on previously installed VM)
 ```
-rm -rf $(readlink -f /everteam) && sudo rm -rf /everteam && cd && rm -rf * && git clone git://github.com/everteam/VM.ZK03.git ZK && bash ./ZK/boot.sh
+sudo rm -rf $(readlink -f /everteam) && sudo rm -rf /everteam && cd && rm -rf * && git clone git://github.com/everteam/VM.ZK03.git ZK && bash ./ZK/boot.sh
 ```
