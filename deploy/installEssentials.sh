@@ -39,9 +39,20 @@ fi
 
 if [ "$os" == "centos" ]; then 
   sudo yum groupinstall -y development > $logFile 2>&1
-  sudo yum -y install glibc-static>> $logFile 2>&1
+  sudo yum -y install glibc-static >> $logFile 2>&1
   sudo yum -y install g++ >> $logFile 2>&1
+  
+  # Python ... 2.7 is needed. CentOS 6 comes with 2.6 :-(
   sudo yum -y install python >> $logFile 2>&1
+  v7=$(cat /etc/redhat-release | grep  -F " 7.")
+  v6=$(cat /etc/redhat-release | grep  -F " 6.")
+
+  if [ ! -z "$v6" ]; then
+  sudo yum update >> $logFile 2>&1
+  sudo yum install centos-release-SCL >> $logFile 2>&1
+    scl enable python27 bash
+  fi
+
   sudo yum -y install curl >> $logFile 2>&1  
   sudo yum -y install unzip >> $logFile 2>&1  
   sudo yum -y install wget >> $logFile 2>&1 
