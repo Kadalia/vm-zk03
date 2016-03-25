@@ -9,7 +9,10 @@ if [ "$os" == "ubuntu" ] || [ "$os" == "debian" ] || [ "$os" == "centos" ];  the
   sudo rm -rf $workspaceDir > /dev/null
   sudo mkdir $workspaceDir
   sudo chown $user $workspaceDir
-  sudo ln -s $workspaceDir /everteam
+
+  if [ ! "$workspaceDir" == "/everteam" ];  then 
+    sudo ln -s $workspaceDir /everteam
+  fi
   sudo chown $user /everteam
 fi
 
