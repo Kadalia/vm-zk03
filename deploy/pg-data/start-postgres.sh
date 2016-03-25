@@ -10,7 +10,7 @@ echo
 
 if [ -d "$(readlink -f /everteam/pg-data/)" ]; then 
 
-    sudo -u postgres $psqlDir/pg_ctl start -D /everteam/pg-data/ -l $logFile > $logFile 2>&1
+    sudo sudo -u postgres $psqlDir/pg_ctl start -D /everteam/pg-data/ -l $logFile > $logFile 2>&1
 
 else
 
