@@ -55,7 +55,7 @@ if [ "$os" == "centos" ]; then
   npm install googleapis >> $logFile 2>&1  
 
   # node will listen on port 80 without elevation
-  sudo yum -y install libcap2-bin >> /everteam/softs/installEssentials.log 2>&1
+  sudo yum -y install libcap2-bin >> $logFile 2>&1 
   sudo setcap cap_net_bind_service=+ep `readlink -f \`which node\``
   
   sudo yum -y install postgresql >> $logFile 2>&1
