@@ -30,10 +30,10 @@ if [ "$os" == "centos" ]; then
   v7=$(cat /etc/redhat-release | grep  -F " 7.")
   v6=$(cat /etc/redhat-release | grep  -F " 6.")
 
-  if [! -z "$v7"]; then 
+  if [ ! -z "$v7"]; then 
     ip=`/sbin/ifconfig eth0 | awk '/inet /{print substr($2,1)}'`
   fi
-  if [! -z "$v6"]; then 
+  if [ ! -z "$v6"]; then 
     ip=`ifconfig eth0 | awk '/inet addr/{print substr($2,6)}'`
   fi
   
