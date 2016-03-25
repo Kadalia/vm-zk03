@@ -13,6 +13,7 @@ export JAVA_HOME=/everteam/java
 
 export CATALINA_OPTS="$CATALINA_OPTS -Xms512m"
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx2000m"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=512m"
 
 rm -rf $CATALINA_HOME/logs/*
 
