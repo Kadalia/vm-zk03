@@ -48,8 +48,8 @@ if [ "$os" == "centos" ]; then
   v6=$(cat /etc/redhat-release | grep  -F " 6.")
 
   if [ ! -z "$v6" ]; then
-  sudo yum update >> $logFile 2>&1
-  sudo yum install centos-release-SCL >> $logFile 2>&1
+    sudo yum update >> $logFile 2>&1
+    sudo yum install centos-release-SCL >> $logFile 2>&1
     scl enable python27 bash
   fi
 
