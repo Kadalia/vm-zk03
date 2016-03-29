@@ -40,9 +40,7 @@ else
     sudo sudo -u postgres psql -d everteam -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to everteam;" >> $logFile 2>&1
  
     
-    #rm $deployFile
-
-    ./stop-et-tomcat.sh
+    rm $deployFile
 
     cp ./deploy/et-data/params.xml /everteam/et-webapp/
     cp ./deploy/et-data/c9.menus.* /everteam/home/c9.menus/
