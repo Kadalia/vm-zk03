@@ -1,4 +1,4 @@
-# VM.ZK03
+# vm-zk03
 
 
 ## DEBIAN (tested 8.3)
