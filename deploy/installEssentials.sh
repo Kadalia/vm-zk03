@@ -30,7 +30,8 @@ if [ "$os" == "ubuntu" ] || [ "$os" == "debian" ]; then
   
   sudo apt-get -y install postgresql >> $logFile 2>&1
   sudo systemctl disable postgresql.service >> $logFile 2>&1
-  sudo useradd -a -G postgres everteam >> $logFile 2>&1
+  sudo usermod -G postgres everteam >> $logFile 2>&1
+  sudo usermod -G everteam postgres >> $logFile 2>&1
   
   # needed by solr
   sudo apt-get -y install lsof >> $logFile 2>&1
