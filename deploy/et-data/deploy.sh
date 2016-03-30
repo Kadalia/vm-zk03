@@ -27,6 +27,7 @@ else
     logFile="/everteam/tmp/createdb.log"
     info "createdb (see $logFile)"
 
+    sleep 10
     sudo sudo -u postgres $psqlDir/createdb everteam > $logFile 2>&1
     
     logFile="/everteam/tmp/loaddb.log"
