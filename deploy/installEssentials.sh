@@ -72,6 +72,7 @@ if [ "$os" == "centos" ]; then
   sudo yum -y install postgresql >> $logFile 2>&1
   sudo systemctl disable postgresql.service >> $logFile 2>&1
   sudo useradd -a -G postgres everteam >> $logFile 2>&1
+  sudo useradd -a -G everteam postgres >> $logFile 2>&1
 
   # needed by solr
   sudo yum -y install lsof >> $logFile 2>&1
