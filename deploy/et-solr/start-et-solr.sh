@@ -23,7 +23,7 @@ if [ -d "$(readlink -f /everteam/et-solr/)" ]; then
 
     cd /everteam/et-solr
 
-    ./bin/solr start -c -p 8983 -z localhost:2181 >> $logFile 2>&1
+    ./bin/solr start -c -p 8983 -z $ip:2181 >> $logFile 2>&1
 fi
 
     
