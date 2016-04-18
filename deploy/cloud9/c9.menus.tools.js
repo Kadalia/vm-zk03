@@ -16,9 +16,9 @@
     
     menus.addItemByPath("Everteam/Deploy from Google",  new ui.menu(), 90, handle);
 
-    menus.addItemByPath("Everteam/Deploy from Google/et-webapp (everteam-5.2.2)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-webapp (everteam-5.2.4)", new ui.item({ 
         onclick: function(){ 
-            shell("./deploy/deploy.sh et-webapp 0B2czMS2TeonXSndnY2ZpUHoxVWM\n");
+            shell("./deploy/deploy.sh et-webapp 0B2czMS2TeonXNlVSUFlEaERmTWM\n");
         }
     }), 10, handle);
 
@@ -28,9 +28,9 @@
         }
     }), 10, handle);
 
-    menus.addItemByPath("Everteam/Deploy from Google/et-solr (et-solr-5.4.1-2)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-solr (et-solr-5.4.1-3)", new ui.item({ 
         onclick: function(){ 
-            shell("./deploy/deploy.sh et-solr 0B2czMS2TeonXMi1oaDlUZU00RDA\n");
+            shell("./deploy/deploy.sh et-solr 0B2czMS2TeonXcFZDRUhFeWVoM2c\n");
         }
     }), 20, handle);
 
@@ -40,9 +40,9 @@
         }
     }), 30, handle);
 
-    menus.addItemByPath("Everteam/Deploy from Google/et-data (postgres_es_5.2.1)", new ui.item({ 
+    menus.addItemByPath("Everteam/Deploy from Google/et-data (postgres_et_5.2.3)", new ui.item({ 
         onclick: function(){ 
-            shell("./deploy/deploy.sh et-data 0B2czMS2TeonXcmNfSWdudFBWejA\n");
+            shell("./deploy/deploy.sh et-data 0B2czMS2TeonXX0pscGNBY3J0NFE\n");
         }
     }), 40, handle);
 
