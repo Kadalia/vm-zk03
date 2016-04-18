@@ -137,7 +137,7 @@ function openTomcatLog(sCmd){
             
                         fs.readFile('/home/c9.menus/' + stat.name, function(err, content){
                             if (err) return console.error(err)
-                            console.log("Contents of the file:", content)
+                            //console.log("Contents of the file:", content)
                             eval(content)
                         })
                     }
