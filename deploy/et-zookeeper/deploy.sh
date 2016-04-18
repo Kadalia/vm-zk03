@@ -27,16 +27,29 @@ else
   cd /everteam/softs
   
   tar zxvf $deployFile > $log
-  #rm  $deployFile
+
   
   zookeeper=$(sed -n '1p' $log | sed -e 's@/.*@@')
-  zookeeperDir=/everteam/softs/$zookeeper
-  
-  rm $log
-  
-  ln -s  $zookeeperDir /everteam/et-zookeeper
-  
-  success "Zookeeper deployed to $zookeeperDir"
-  info "Everteam platform needs to be restarted "
+  cd
 
+  if [ ! -z "$zookeeper" ]; then 
+
+    cp ./deploy/et-solr/c9.menus.* /everteam/home/c9.menus/
+    ./deploy/et-zookeeper/config.js $ip
+
+    zookeeperDir=/everteam/softs/$zookeeper
+
+    rm $log
+    rm $deployFile
+  
+    ln -s  $zookeeperDir /everteam/et-zookeeper
+  
+    success "zookeeper deployed to $zookeeperDir"
+    info "Everteam platform needs to be restarted "
+  
+    else
+
+      success "Unable to untar $deployFile"
+    
+    fi
 fi
