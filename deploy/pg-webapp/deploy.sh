@@ -35,6 +35,14 @@ else
     mkdir -p /everteam/pg-tomcat/conf/Catalina/localhost
     cp ./deploy/pg-webapp/pgstudio.xml /everteam/pg-tomcat/conf/Catalina/localhost
 
+    if [ -d "$(readlink -f /everteam/et-webapp/)" ]; then 
+        cp ./deploy/et-data/et-data.jsp /everteam/pg-webapp/
+    fi    
+    if [ -d "$(readlink -f /everteam/it-tomcat/)" ]; then 
+        cp ./deploy/it-data/it-data.jsp /everteam/pg-webapp/
+    fi    
+
+
     ./start-pg-tomcat.sh
 
 fi
