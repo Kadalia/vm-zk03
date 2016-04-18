@@ -43,6 +43,8 @@ else
     rm $deployFile
   
     ln -s  $zookeeperDir /everteam/et-zookeeper
+    
+    sed -i 's/^dataDir=.*/dataDir=\/everteam\/home\/zookeeper\/zkdata/' /everteam/et-zookeeper/conf/zoo.cfg 
   
     success "zookeeper deployed to $zookeeperDir"
     info "Everteam platform needs to be restarted "
