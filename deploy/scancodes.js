@@ -9,7 +9,7 @@ for (var i = 0, len = str.length; i < len; i++) {
     }
   s = s + " " +  convert(str[i])
 }
-  console.log(s + ' 01 9c')
+  console.log(s + ' 1c 9c')
 
 function convert(c) {
        
