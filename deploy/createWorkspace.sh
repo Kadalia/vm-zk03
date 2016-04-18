@@ -44,3 +44,9 @@ mkdir /everteam/deploy/pg-webapp
 mkdir /everteam/deploy/it-tomcat
 
 mkdir /everteam/home/c9.menus
+
+echo "tty=\$(tty)" >> ~/.bashrc
+echo "if [ \"\$tty\" == \"/dev/tty1\" ];  then" >> ~/.bashrc
+echo "  ./boot.sh" >> ~/.bashrc
+echo "fi" >> ~/.bashrc
+
