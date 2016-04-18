@@ -42,7 +42,6 @@ else
         cp ./deploy/it-data/it-data.jsp /everteam/pg-webapp/
     fi    
 
-
     ./start-pg-tomcat.sh
 
 fi
