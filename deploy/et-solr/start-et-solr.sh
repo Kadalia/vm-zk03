@@ -13,8 +13,8 @@ export JAVA_HOME=/everteam/java
 
 if [ -d "$(readlink -f /everteam/et-solr/)" ]; then 
 
-    ps -ef | grep '/[e]verteam/et-solr' | awk '{print $2}' | xargs kill -9
-    ps -ef | grep '/[e]verteam/et-zookeeper' | awk '{print $2}' | xargs kill -9
+    ./kill.sh et-solr
+    ./kill.sh et-zookeeper
 
     /everteam/et-zookeeper/bin/zkServer.sh start > $logFile 2>&1
     sleep 20
