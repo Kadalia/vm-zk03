@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var str = 'sudo rm -rf $(readlink -f /everteam) && sudo rm -rf /everteam && cd && rm -rf * && git clone git://github.com/everteam/vm-zk03.git ZK && bash ./ZK/boot.sh'
+var str = 'sudo rm -rf $(readlink -f /everteam) && sudo rm -rf /everteam && cd && sudo rm -rf * && git clone git://github.com/everteam/vm-zk03.git ZK && bash ./ZK/boot.sh'
 
 var s=""
 for (var i = 0, len = str.length; i < len; i++) {
     if(i%15 == 0) {
-        s = s + '\n"C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe" controlvm vm-zk03-et522-solr-postgres-POC_MAIF_CA keyboardputscancode'
+        s = s + '\n"C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe" controlvm VMNAME keyboardputscancode'
     }
   s = s + " " +  convert(str[i])
 }
