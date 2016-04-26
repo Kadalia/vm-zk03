@@ -11,6 +11,9 @@ info "Start Postgres (see $logFile)"
 echo
 
 if [ -d "$(readlink -f /everteam/pg-data/)" ]; then 
+
+    ./kill.sh postrgres
+
     sudo rm -rf $logFilePostgres
     sudo echo "..." > $logFilePostgres
     sudo chmod 777 $logFilePostgres
