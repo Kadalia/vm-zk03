@@ -7,7 +7,7 @@ var everteam = '/everteam/et-webapp'
 var libxmljs = require("libxmljs")
 
 if(! ip) {
-       console.log("usage : config [ip]")
+       console.log("usage : deploy [ip]")
 } else {
 
        var paramESCI = everteam + '/apps/esci/conf/param.xml'
@@ -32,18 +32,11 @@ if(! ip) {
               xmlDoc.get("//param[PARAMSEQ='esci.solr.secure']/CONTENT").text("true")
               xmlDoc.get("//param[PARAMSEQ='esci.solr.secure']").attr({priority:"true"})
 
-              xmlDoc.get("//param[PARAMSEQ='esci.solr.home']/CONTENT").text("/everteam/home/everteam/solr")
+              xmlDoc.get("//param[PARAMSEQ='esci.solr.home']/CONTENT").text("/everteam/home/solr")
               xmlDoc.get("//param[PARAMSEQ='esci.solr.home']").attr({priority:"true"})
               
               fs.writeFile(paramESCI, xmlDoc.toString(), function (err) {
                      if (err) return console.log(err);
               })
        })
-
-       
 }
-
-
-
-
-
