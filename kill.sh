@@ -17,7 +17,7 @@ else
     if [ ! -z "$id" ]; then 
     
         info "kill process $1 pid=$id"
-        echo $1 | xargs kill -9
+        echo $id | xargs kill -9
     fi
     
 fi
