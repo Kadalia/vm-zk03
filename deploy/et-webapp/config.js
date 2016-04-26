@@ -9,7 +9,8 @@ var paramCore = everteam + '/apps/core/conf/param.xml'
 var paramNLP = everteam + '/apps/nlp/conf/param.xml'       
 var paramIHM = everteam + '/apps/ihm/conf/param.xml'       
 var paramEMS = everteam + '/apps/ems/conf/param.xml'       
-var dPortal = everteam + '/hsqldb/dPortal.script'       
+var dPortal = everteam + '/hsqldb/dPortal.script'     
+var log4j = everteam + '/log4j.xml'   
 
 /*
 console.log("Configuring everteam webapp")
@@ -33,6 +34,21 @@ function commentValue(element) {
        element.addChild(libxmljs.Comment(element.doc(), sValue))
       
 }
+
+fs.readFile(log4j, 'utf8', function (err,data) {
+       if (err) {
+              return console.log(err);
+       }
+
+       var xmlDoc = libxmljs.parseXml(data)
+
+       xmlDoc.get("//root/priority").attr({value:"INFO"})
+       xmlDoc.get('//category[@name="es.cls.core.clsStaticData"]/priority').attr({value:"INFO"})
+
+       fs.writeFile(log4j, xmlDoc.toString(), function (err) {
+              if (err) return console.log(err)
+       })
+})
 
 fs.readFile(webinf, 'utf8', function (err,data) {
        if (err) {
@@ -173,7 +189,5 @@ fs.readFile(paramCore, 'utf8', function (err,data) {
               if (err) return console.log(err);
        })
 })
-
-
 
 
