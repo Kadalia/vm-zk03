@@ -12,7 +12,7 @@ else
     
     process=/[e]verteam/$1
 
-    id=$(ps -ef | grep $process | awk '{print $2}') 
+    id=$(ps -ef | grep $process | grep -v grep | awk '{print $2}') 
 
     if [ ! -z "$id" ]; then 
     
