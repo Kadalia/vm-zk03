@@ -15,7 +15,7 @@ export CATALINA_OPTS="$CATALINA_OPTS -Xms512m"
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx2000m"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=512m"
 
-ps -ef | grep '/[e]verteam/INSTANCE' | awk '{print $2}' | xargs kill -9
+./kill.sh INSTANCE
 
 rm -rf $CATALINA_HOME/logs/*
 
